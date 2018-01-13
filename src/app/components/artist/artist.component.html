@@ -1,0 +1,43 @@
+
+<div class="row">
+  <div class="col-md-3">
+    <img [src]=" artist.images | noPhoto" alt="" class="img-thumbnail round">
+<!-- {{artist}} -->
+  </div>
+  <div class="col-md-9">
+    <h1> {{artist.name}} </h1>
+    <a [href]="artist.external_urls?.spotify" target="_blank" class="btn btn-outline-success">Open Spotify </a>
+    <button type="button" routerLink="/search" class="btn btn-outline-danger">Return </button>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-inverse">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Picture</th>
+                <th>Name</th>
+                <th>Popularity</th>
+                <th>Listen</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let tracks of topTracks; index as i;" >
+                <th scope="row">{{i + 1}}</th>
+                <td> <img [src]="tracks.album.images | noPhoto" class="album_image" alt=""> </td>
+                <td>{{ tracks.name }}</td>
+                <td>{{ tracks.popularity }}%</td>
+                <td >
+                  <audio controls="controls" >
+                    <source [src]="tracks.preview_url">
+                    Your browser might be too old!
+                  </audio>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>

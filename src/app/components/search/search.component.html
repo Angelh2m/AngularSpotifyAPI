@@ -1,0 +1,39 @@
+
+<div class=" ">
+  <div class="row">
+
+
+    <div class="col-3">
+      <label for="">Search</label>
+      <input type="text"
+            class="form-control"
+            placeholder="Search for an artist"
+            (keyup)="searchArtist()"
+            [(ngModel)]="searchTerm">
+    </div>
+
+    <button (click)='getT()'>Token</button>
+
+    <div class="col-9 border" *ngIf="searchTerm.length > 1">
+      <h1>{{searchTerm}}</h1>
+      <div class="row">
+        <div
+          *ngFor="let artists of _spotify.artists"
+          [routerLink]="['/artist/', artists.id]"
+          class="col-md-3 text-center pointer"
+          >
+          <img
+          [src]="artists.images | noPhoto"
+          class="img-thumbnail"
+          alt="">
+          <p>{{artists.name}}</p>
+        </div>
+
+      </div>
+      <!-- <ul *ngFor="let artists of _spotify.artists">
+        <li>{{artists.name}}</li>
+      </ul> -->
+    </div>
+
+  </div>
+</div>
