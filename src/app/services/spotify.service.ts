@@ -7,14 +7,17 @@ export class SpotifyService {
 
   artists: any[] = [];
   urlSpotify = 'https://api.spotify.com/v1/';
-  token = '';
+  // token = '';
+  token = 'BQAC-Xq4U1qoRxzGCY_j_R0uC5t7MurSHD44W_48CHEhjvwrlM7HVche8Q8Ik8kaCNkYigMyvAAsmsWp_lo';
 
   constructor(private http: HttpClient) { }
 
 
   newToken(){
-   this.http.get('http://localhost:3000/token')
-    .subscribe( (data: any ) => this.token = data.token);
+
+  //  this.http.get('https://young-inlet-32582.herokuapp.com/token')
+  //   .subscribe( (data: any ) => this.token = data.token);
+
   }
 
 

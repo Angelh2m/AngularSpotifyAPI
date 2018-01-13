@@ -6,6 +6,28 @@ body{
   color: white;
 }
 
+h1{
+  margin-bottom: 1rem;
+}
+
+table{
+  margin-top: 4rem;
+}
+
+.navbar-brand{
+  font-weight: 700;
+}
+
+.col-md-9 {
+  padding-left: 3rem;
+  align-items: center;
+  display: flex;
+}
+
+.table-inverse {
+  background-color: #151515;
+}
+
 .bg-dark{
   background-color: #1b1b1b;
 }
@@ -28,4 +50,10 @@ body{
 
 .pointer{
   cursor: pointer;
+}
+
+@media(max-width: 600px){
+  tbody{
+    display: inline-block;
+  }
 }

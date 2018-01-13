@@ -2,9 +2,10 @@
 <div class=" ">
   <div class="row">
 
-
-    <div class="col-3">
-      <label for="">Search</label>
+    <div class="col-12">
+      <h1 for="">Search for an artist</h1>
+    </div>
+    <div class="col-12">
       <input type="text"
             class="form-control"
             placeholder="Search for an artist"
@@ -12,9 +13,8 @@
             [(ngModel)]="searchTerm">
     </div>
 
-    <button (click)='getT()'>Token</button>
 
-    <div class="col-9 border" *ngIf="searchTerm.length > 1">
+    <div class="col-12 border" *ngIf="searchTerm.length > 1">
       <h1>{{searchTerm}}</h1>
       <div class="row">
         <div

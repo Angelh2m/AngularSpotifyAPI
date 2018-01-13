@@ -28,7 +28,7 @@ import { ArtistComponent } from './components/artist/artist.component';
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'home', component: HomeComponent },
+      { path: 'home', component: SearchComponent },
       { path: 'search', component: SearchComponent },
       { path: 'artist/:id', component: ArtistComponent },
       { path: '**', pathMatch: 'full', redirectTo: 'home' },
