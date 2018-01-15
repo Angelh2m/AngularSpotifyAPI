@@ -3,7 +3,7 @@
   <div class="row">
 
     <div class="col-12">
-      <h1 for="">Search for an artist</h1>
+      <h3 for="">Search for an artist</h3>
     </div>
     <div class="col-12">
       <input type="text"
@@ -13,9 +13,8 @@
             [(ngModel)]="searchTerm">
     </div>
 
-
     <div class="col-12 border" *ngIf="searchTerm.length > 1">
-      <h1>{{searchTerm}}</h1>
+      <h1 class="mainTitle">{{searchTerm}}</h1>
       <div class="row">
         <div
           *ngFor="let artists of _spotify.artists"
@@ -30,9 +29,6 @@
         </div>
 
       </div>
-      <!-- <ul *ngFor="let artists of _spotify.artists">
-        <li>{{artists.name}}</li>
-      </ul> -->
     </div>
 
   </div>

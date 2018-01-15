@@ -8,7 +8,7 @@
     <div>
       <h1> {{artist.name}} </h1>
       <a [href]="artist.external_urls?.spotify" target="_blank" class="btn btn-outline-success">Open Spotify </a>
-      <button type="button" routerLink="/search" class="btn btn-outline-danger">Return </button>
+      <button type="button" routerLink="/search" (click)="stop()" class="btn btn-outline-danger">Return </button>
     </div>
   </div>
 </div>
@@ -33,10 +33,15 @@
                 <td>{{ tracks.name }}</td>
                 <td>{{ tracks.popularity }}%</td>
                 <td >
-                  <audio controls="controls" >
-                    <source [src]="tracks.preview_url">
-                    Your browser might be too old!
-                  </audio>
+                  <div
+                  (click)="show = !show; playSong(tracks.preview_url, tracks.id )"
+                  class="playButton">
+                    <div *ngIf='tracks.preview_url'>
+                      <svg class="active" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><style>.cls-1{fill:rgb(255, 255, 255);}</style></defs><title>Asset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Capa_1" data-name="Capa 1"><path class="cls-1" d="M256,0C114.84,0,0,114.84,0,256S114.84,512,256,512,512,397.16,512,256,397.16,0,256,0ZM388.8,263,201.07,391a8.55,8.55,0,0,1-4.8,1.48,8.54,8.54,0,0,1-8.53-8.53V128a8.54,8.54,0,0,1,13.35-7L388.81,249a8.53,8.53,0,0,1,0,14.1Z"/></g></g></svg>
+                    </div>
+                    <div *ngIf='!tracks.preview_url'>No preview available</div>
+                  </div>
+
                 </td>
               </tr>
             </tbody>

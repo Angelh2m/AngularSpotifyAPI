@@ -13,15 +13,43 @@ export class ArtistComponent implements OnInit {
   artist: any = {};
   topTracks: any = [];
 
+   // Player
+   show: boolean = true;
+   public soundPlayer;
+   currentSong: String;
+   previousSong = '';
+  //  playingState = {
+  //    isPlaying: false;
+  //  }
+
   constructor(
     private activatedRoute: ActivatedRoute,
     public _spotify: SpotifyService
   ) { }
 
-  stopClick(event: Event) {
-    event.preventDefault();
-    event. stopPropagation();
+
+  playSong(track, id){
+    console.log(id);
+
+    this.previousSong = id;
+    const x = this.show;
+
+    if(x == false){
+        this.soundPlayer = new Audio(track);
+        this.soundPlayer.play();
+        this.currentSong = id;
+    }
+
+    if(x == true ){
+      this.soundPlayer.pause();
+      this.soundPlayer.currentTime = 0;
+    }
   }
+
+  stop() {
+    this.soundPlayer.pause();
+  }
+
 
   ngOnInit() {
     this.activatedRoute.params

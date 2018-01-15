@@ -8,15 +8,16 @@ export class SpotifyService {
   artists: any[] = [];
   urlSpotify = 'https://api.spotify.com/v1/';
   // token = '';
-  token = 'BQAC-Xq4U1qoRxzGCY_j_R0uC5t7MurSHD44W_48CHEhjvwrlM7HVche8Q8Ik8kaCNkYigMyvAAsmsWp_lo';
+  token = 'BQDiivtI8q04kezB-HU9RVO8OPUfnEce4Km5WrDtNgp-ehpMPVl493c2jddkR0e_XfWO5A1oGwzln6yHkag';
 
   constructor(private http: HttpClient) { }
 
 
   newToken(){
 
-  //  this.http.get('https://young-inlet-32582.herokuapp.com/token')
-  //   .subscribe( (data: any ) => this.token = data.token);
+    this.http.get('http://angelham.us-east-2.elasticbeanstalk.com/token')
+    .subscribe( (data: any ) => this.token = data.token);
+
 
   }
 
@@ -34,7 +35,6 @@ export class SpotifyService {
   getTopTracks(id) {
 
     const headers = this.getHeaders();
-
     const url = `${this.urlSpotify}artists/${ id }/top-tracks?country=US`;
 
     return this.http.get(url, { headers });
@@ -44,7 +44,6 @@ export class SpotifyService {
   artist(id: string){
 
     const header = this.getHeaders();
-
     const url = `${this.urlSpotify}artists/${ id }`;
 
     return this.http.get(url, { headers: header });
@@ -54,7 +53,6 @@ export class SpotifyService {
   getArtist(searchTerm) {
 
     const headers = this.getHeaders();
-
     const url = `${this.urlSpotify}search?query=${ searchTerm }&type=artist&market=US&offset=0&limit=20`;
 
     return this.http.get(url, { headers })
